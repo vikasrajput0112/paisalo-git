@@ -16,7 +16,7 @@ pipeline {
         stage('Checkout') {
             steps {
                 echo 'Checking out code from Git repository...'
-                git 'https://github.com/YourOrg/YourDotNetProject.git'
+                git 'https://github.com/vikasrajput0112/paisalo-git.git'
             }
         }
 
