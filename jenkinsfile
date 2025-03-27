@@ -1,5 +1,5 @@
-Step 1: Create a Jenkinsfile in Your Repository
-Create a Jenkinsfile at the root of your .NET project in the Git repository. Below is a simple but complete pipeline for a .NET project, including build, tests, linting, security scans, and code quality checks.
+#Step 1: Create a Jenkinsfile in Your Repository
+#Create a Jenkinsfile at the root of your .NET project in the Git repository. Below is a simple but complete pipeline for a .NET project, including build, tests, linting, security scans, and code quality checks.
 pipeline {
     agent any
     
