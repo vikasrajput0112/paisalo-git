@@ -1,29 +1,48 @@
 pipeline {
     agent any
-    
+
+    environment {
+        DOTNET_CLI_HOME = '/tmp'  // Adjust as needed for your environment
+    }
+
     stages {
-        stage('Stage 1 - Initialization') {
+        stage('Build') {
             steps {
                 script {
-                    echo 'Hello from Stage 1: Initialization'
+                    echo 'Building .NET Project...'
+                    sh 'dotnet restore'
+                    sh 'dotnet build'
                 }
             }
         }
-        
-        stage('Stage 2 - Build') {
+
+        stage('Test') {
             steps {
                 script {
-                    echo 'Hello from Stage 2: Build'
+                    echo 'Running Tests...'
+                    sh 'dotnet test'
                 }
             }
         }
-        
-        stage('Stage 3 - Finalization') {
+
+        stage('Deploy') {
             steps {
                 script {
-                    echo 'Hello from Stage 3: Finalization'
+                    echo 'Deploying .NET Project...'
+                    // You can replace this with your actual deployment steps
+                    sh 'dotnet publish -c Release -o ./publish'
+                    // Example: upload to a server or deploy to Azure/AWS, etc.
                 }
             }
+        }
+    }
+
+    post {
+        success {
+            echo 'Pipeline completed successfully!'
+        }
+        failure {
+            echo 'Pipeline failed. Please check the logs.'
         }
     }
 }
