@@ -1,11 +1,7 @@
 pipeline {
     agent any
 
-    environment {
-        DOTNET_CLI_HOME = '/tmp'  // Adjust as needed for your environment
-    }
-
-    stages {
+       stages {
         stage('Build') {
             steps {
                 script {
