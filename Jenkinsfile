@@ -1,20 +1,27 @@
 pipeline {
     agent any
-    tools {
-        dotnet 'dotnet'  // Ensure this matches the name of the .NET SDK tool in Jenkins Global Tool Configuration
-    }
+    
     stages {
-        stage('Build') {
+        stage('Stage 1 - Initialization') {
             steps {
                 script {
-                    sh 'dotnet build'
+                    echo 'Hello from Stage 1: Initialization'
                 }
             }
         }
-        stage('Test') {
+        
+        stage('Stage 2 - Build') {
             steps {
                 script {
-                    sh 'dotnet test'
+                    echo 'Hello from Stage 2: Build'
+                }
+            }
+        }
+        
+        stage('Stage 3 - Finalization') {
+            steps {
+                script {
+                    echo 'Hello from Stage 3: Finalization'
                 }
             }
         }
